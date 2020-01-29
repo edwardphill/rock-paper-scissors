@@ -6,6 +6,8 @@ const getUserChoice = userInput => {
     userInput === "scissors"
   ) {
     return userInput;
+  } else if (userInput === "bomb") {
+    return userInput;
   } else {
     console.log("Please enter ROCK, PAPER, or SCISSORS");
   }
@@ -24,6 +26,14 @@ const getComputerChoice = () => {
 };
 
 const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === "bomb") {
+    if (computerChoice === "rock") {
+      return "You win!";
+    } else {
+      return "You Won!";
+    }
+  }
+
   if (userChoice === "rock") {
     if (computerChoice === "paper") {
       return "The computer won!";
@@ -54,7 +64,7 @@ const determineWinner = (userChoice, computerChoice) => {
 };
 
 const playGame = () => {
-  const userChoice = getUserChoice("rock");
+  const userChoice = getUserChoice("bomb");
   const computerChoice = getComputerChoice();
   console.log("You threw: " + userChoice);
   console.log("The computer threw: " + computerChoice);
